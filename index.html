@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Droga do Miłości — Prywatne Biuro Matrymonialne</title>
+<meta name="description" content="Droga do Miłości — dyskretna, płatna usługa dodatkowa biura matrymonialnego. Dodaj poważną ofertę matrymonialną, która trafi do prywatnej grupy naszych doradców.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%236B1626'/%3E%3Ctext x='50' y='64' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='46' fill='%23D4B876'%3EDM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Work+Sans:wght@300;400;500;600;700&family=Parisienne&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          cream:   { DEFAULT:'#FBF6EA', 100:'#FFFDFA', 200:'#F6EEDC' },
+          beige:   { DEFAULT:'#EDE0C3', 100:'#F2E8D2', 200:'#E2D3AE' },
+          burgundy:{ DEFAULT:'#6B1626', light:'#8C2E3F', dark:'#450F1B', 50:'#F4E6E8' },
+          gold:    { DEFAULT:'#B08D45', light:'#D4B876', dark:'#8A6A2E' },
+          ink:     { DEFAULT:'#2A2420', soft:'#4A4038' },
+        },
+        fontFamily: {
+          display: ['"Cormorant Garamond"','ui-serif','Georgia','serif'],
+          sans: ['"Work Sans"','ui-sans-serif','system-ui','sans-serif'],
+          script: ['"Parisienne"','cursive'],
+        },
+        boxShadow: {
+          soft: '0 10px 40px -10px rgba(42,36,32,0.18)',
+          card: '0 2px 24px -4px rgba(107,22,38,0.10)',
+        },
+      }
+    }
+  }
+</script>
+<style>
+  :root{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){
+    :root{ scroll-behavior:auto; }
+    *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; }
+  }
+  body{
+    background-color:#FBF6EA;
+    background-image:
+      radial-gradient(rgba(107,22,38,0.035) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+  ::selection{ background:#B08D45; color:#FBF6EA; }
+  ::-webkit-scrollbar{ width:10px; }
+  ::-webkit-scrollbar-track{ background:#F6EEDC; }
+  ::-webkit-scrollbar-thumb{ background:#D4B876; border-radius:8px; }
+  ::-webkit-scrollbar-thumb:hover{ background:#B08D45; }
+
+  .reveal{ opacity:0; transform:translateY(28px); transition:opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); }
+  .reveal.is-visible{ opacity:1; transform:translateY(0); }
+  @media (prefers-reduced-motion: reduce){ .reveal{ opacity:1; transform:none; } }
+
+  .ornament-rule{ display:flex; align-items:center; gap:1rem; }
+  .ornament-rule::before, .ornament-rule::after{ content:''; flex:1; height:1px; background:linear-gradient(90deg, transparent, #B08D45 50%, transparent); }
+
+  .letter-focus:focus-visible{ outline:2px solid #6B1626; outline-offset:3px; border-radius:2px; }
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible, label:focus-within{ outline:2px solid #6B1626; outline-offset:2px; }
+
+  .nav-link{ position:relative; }
+  .nav-link::after{ content:''; position:absolute; left:0; right:0; bottom:-6px; height:1px; background:#6B1626; transform:scaleX(0); transform-origin:left; transition:transform .3s ease; }
+  .nav-link.active::after, .nav-link:hover::after{ transform:scaleX(1); }
+
+  .field-input{
+    width:100%; background:#FFFDFA; border:1px solid #E2D3AE; border-radius:2px;
+    padding:.85rem 1rem; font-family:'Work Sans',sans-serif; color:#2A2420; transition:border-color .2s ease, box-shadow .2s ease;
+  }
+  .field-input:focus{ border-color:#6B1626; box-shadow:0 0 0 3px rgba(107,22,38,0.08); outline:none; }
+  .field-input.invalid{ border-color:#B0403F; box-shadow:0 0 0 3px rgba(176,64,63,0.12); }
+  .field-label{ font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; color:#4A4038; font-weight:500; margin-bottom:.4rem; display:block; }
+
+  .shake{ animation:shake .45s ease; }
+  @keyframes shake{ 10%,90%{transform:translateX(-1px);} 20%,80%{transform:translateX(2px);} 30%,50%,70%{transform:translateX(-4px);} 40%,60%{transform:translateX(4px);} }
+
+  .pkg-card{ transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease, border-color .35s ease; }
+  .pkg-card.selected{ border-color:#6B1626 !important; box-shadow:0 18px 44px -14px rgba(107,22,38,0.35); transform:translateY(-4px); }
+  .pkg-card .select-badge{ opacity:0; transform:scale(.6); transition:all .25s ease; }
+  .pkg-card.selected .select-badge{ opacity:1; transform:scale(1); }
+
+  .checkbox-custom{ width:1.35rem; height:1.35rem; border:1.5px solid #8A6A2E; border-radius:2px; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; background:#FFFDFA; transition:background .2s ease, border-color .2s ease; }
+  input:checked + .checkbox-custom{ background:#6B1626; border-color:#6B1626; }
+  input:checked + .checkbox-custom svg{ opacity:1; transform:scale(1); }
+  .checkbox-custom svg{ opacity:0; transform:scale(.5); transition:all .18s ease; color:#FBF6EA; }
+
+  .photo-slot{ aspect-ratio:3/4; border:1.5px dashed #D4B876; border-radius:4px; position:relative; overflow:hidden; transition:border-color .2s ease, background .2s ease; background:#F6EEDC; }
+  .photo-slot:hover{ border-color:#6B1626; background:#F2E8D2; }
+  .photo-slot.filled{ border-style:solid; border-color:#EDE0C3; }
+  .photo-slot img{ width:100%; height:100%; object-fit:cover; }
+
+  .modal-overlay{ background:rgba(42,36,32,0.72); backdrop-filter:blur(3px); }
+
+  .watermark-word{ font-family:'Parisienne',cursive; user-select:none; pointer-events:none; }
+
+  .seal-ring{ transition: transform .6s ease; }
+  .group:hover .seal-ring{ transform: rotate(8deg); }
+
+  details > summary{ list-style:none; cursor:pointer; }
+  details > summary::-webkit-details-marker{ display:none; }
+  details[open] .chev{ transform:rotate(180deg); }
+  .chev{ transition:transform .3s ease; }
+
+  .btn-primary{
+    background:#6B1626; color:#FBF6EA; transition:background .25s ease, transform .2s ease, box-shadow .25s ease;
+    box-shadow:0 10px 30px -8px rgba(107,22,38,0.5);
+  }
+  .btn-primary:hover{ background:#8C2E3F; transform:translateY(-2px); box-shadow:0 16px 36px -8px rgba(107,22,38,0.55); }
+  .btn-primary:active{ transform:translateY(0); }
+  .btn-primary:disabled{ background:#B08D45; opacity:.55; cursor:not-allowed; transform:none; box-shadow:none; }
+
+  #confetti-canvas{ position:absolute; inset:0; width:100%; height:100%; pointer-events:none; }
+
+  .num-roman{ font-family:'Cormorant Garamond',serif; font-style:italic; }
+
+  @keyframes floatSlow{ 0%,100%{ transform:translateY(0) rotate(-2deg); } 50%{ transform:translateY(-10px) rotate(-1deg); } }
+  .float-slow{ animation:floatSlow 7s ease-in-out infinite; }
+  @media (prefers-reduced-motion: reduce){ .float-slow{ animation:none; } }
+</style>
+</head>
+<body class="font-sans text-ink antialiased">
+
+<!-- ===================== HEADER ===================== -->
+<header id="site-header" class="fixed top-0 left-0 right-0 z-40 bg-cream-100/90 backdrop-blur border-b border-gold/25 transition-shadow duration-300">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      <a href="#home" class="flex items-center gap-3 group" data-nav>
+        <svg viewBox="0 0 100 100" class="w-9 h-9 text-burgundy seal-ring shrink-0">
+          <circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="2"/>
+          <circle cx="50" cy="50" r="37" fill="none" stroke="currentColor" stroke-width="1"/>
+          <text x="50" y="61" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-style="italic" font-size="34" fill="currentColor">DM</text>
+        </svg>
+        <span class="font-display text-2xl tracking-wide text-ink leading-none">Droga do <span class="font-script text-burgundy text-[1.6rem] leading-none">Miłości</span></span>
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-9 text-sm tracking-wide text-ink-soft">
+        <a href="#home" data-nav class="nav-link active py-2">Strona główna</a>
+        <a href="#jak-to-dziala" data-nav class="nav-link py-2">Jak to działa</a>
+        <a href="#pakiety" data-nav class="nav-link py-2">Pakiety</a>
+        <a href="#dodaj-oferte" data-nav class="nav-link py-2">Dodaj ofertę</a>
+        <a href="#o-nas" data-nav class="nav-link py-2">O nas</a>
+        <a href="#regulamin" data-nav class="nav-link py-2">Regulamin</a>
+      </nav>
+
+      <a href="#dodaj-oferte" data-nav class="hidden lg:inline-flex items-center gap-2 border border-burgundy text-burgundy hover:bg-burgundy hover:text-cream-100 transition-colors duration-300 px-5 py-2.5 text-sm tracking-wide">
+        Dodaj swoją ofertę
+      </a>
+
+      <button id="menu-toggle" aria-label="Otwórz menu" aria-expanded="false" class="lg:hidden text-ink p-2">
+        <svg viewBox="0 0 24 24" class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="lg:hidden hidden border-t border-gold/25 bg-cream-100">
+    <nav class="flex flex-col px-6 py-4 text-base">
+      <a href="#home" data-nav class="py-3 border-b border-beige-200">Strona główna</a>
+      <a href="#jak-to-dziala" data-nav class="py-3 border-b border-beige-200">Jak to działa</a>
+      <a href="#pakiety" data-nav class="py-3 border-b border-beige-200">Pakiety</a>
+      <a href="#dodaj-oferte" data-nav class="py-3 border-b border-beige-200">Dodaj ofertę</a>
+      <a href="#o-nas" data-nav class="py-3 border-b border-beige-200">O nas</a>
+      <a href="#regulamin" data-nav class="py-3">Regulamin</a>
+      <a href="#dodaj-oferte" data-nav class="mt-4 text-center bg-burgundy text-cream-100 py-3 tracking-wide">Dodaj swoją ofertę</a>
+    </nav>
+  </div>
+</header>
+
+<main class="pt-20">
+
+<!-- ===================== HERO ===================== -->
+<section id="home" class="relative overflow-hidden">
+  <div aria-hidden="true" class="absolute -right-10 top-10 text-[9rem] md:text-[13rem] text-burgundy/[0.05] watermark-word select-none hidden sm:block">Miłość</div>
+
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 py-16 md:py-24 lg:py-28 grid lg:grid-cols-[1.15fr_0.85fr] gap-16 items-center relative">
+    <div class="reveal">
+      <p class="ornament-rule text-xs tracking-[0.25em] uppercase text-gold-dark font-medium mb-8 max-w-md">
+        <span class="whitespace-nowrap">Usługa dodatkowa biura matrymonialnego</span>
+      </p>
+      <h1 class="font-display text-[2.6rem] leading-[1.08] sm:text-6xl sm:leading-[1.05] text-ink" style="text-wrap:balance">
+        Droga do miłości zaczyna się od jednej, <em class="text-burgundy not-italic font-medium">dobrze napisanej</em> historii.
+      </h1>
+      <p class="mt-7 text-lg text-ink-soft max-w-xl leading-relaxed">
+        Dołącz do prywatnego grona poważnych kandydatów naszego biura. Twoja oferta trafia bezpośrednio pod opiekę doradców i do zamkniętej grupy kobiet szukających trwałego związku — z zachowaniem pełnej dyskrecji.
+      </p>
+
+      <div class="mt-10 flex flex-col sm:flex-row gap-4">
+        <a href="#dodaj-oferte" data-nav class="btn-primary inline-flex justify-center items-center px-9 py-4 text-base tracking-wide">
+          Dodaj swoją ofertę
+        </a>
+        <a href="#jak-to-dziala" data-nav class="inline-flex justify-center items-center px-9 py-4 text-base tracking-wide border border-ink/20 text-ink hover:border-burgundy hover:text-burgundy transition-colors">
+          Zobacz, jak to działa
+        </a>
+      </div>
+
+      <div class="mt-12 flex flex-wrap gap-x-8 gap-y-4 text-sm text-ink-soft">
+        <div class="flex items-center gap-2">
+          <svg viewBox="0 0 24 24" class="w-5 h-5 text-gold-dark shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M7 10V7a5 5 0 0 1 10 0v3"/></svg>
+          Płatność w pełni szyfrowana
+        </div>
+        <div class="flex items-center gap-2">
+          <svg viewBox="0 0 24 24" class="w-5 h-5 text-gold-dark shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          Biuro matrymonialne z wieloletnią tradycją
+        </div>
+        <div class="flex items-center gap-2">
+          <svg viewBox="0 0 24 24" class="w-5 h-5 text-gold-dark shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+          Każda oferta weryfikowana ręcznie
+        </div>
+      </div>
+    </div>
+
+    <div class="relative reveal" style="transition-delay:.15s">
+      <div class="relative mx-auto max-w-sm float-slow">
+        <div class="absolute inset-0 translate-x-3 translate-y-3 border border-gold/40"></div>
+        <div class="relative bg-cream-100 border border-gold/50 shadow-soft px-8 py-10">
+          <div class="ornament-rule mb-6">
+            <span class="text-[0.65rem] tracking-[0.3em] uppercase text-gold-dark">Poufne</span>
+          </div>
+          <svg viewBox="0 0 100 100" class="w-16 h-16 text-burgundy mx-auto mb-6">
+            <circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="50" cy="50" r="38" fill="none" stroke="currentColor" stroke-width="1"/>
+            <text x="50" y="61" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-style="italic" font-size="34" fill="currentColor">DM</text>
+            <circle cx="50" cy="6" r="1.6" fill="currentColor"/><circle cx="50" cy="94" r="1.6" fill="currentColor"/>
+            <circle cx="6" cy="50" r="1.6" fill="currentColor"/><circle cx="94" cy="50" r="1.6" fill="currentColor"/>
+          </svg>
+          <p class="text-center font-display italic text-xl text-ink-soft">„Poważne intencje.<br>Dyskretna droga.”</p>
+          <p class="text-center mt-6 text-xs tracking-[0.2em] uppercase text-gold-dark">Nr zgłoszenia · 2026 / 0347</p>
+          <div class="ornament-rule mt-6"></div>
+          <p class="text-center mt-6 text-sm text-ink-soft">Twoja oferta trafia wyłącznie<br>do zamkniętego grona naszego biura.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== JAK TO DZIAŁA ===================== -->
+<section id="jak-to-dziala" class="py-24 md:py-28 bg-beige-100/60 border-y border-gold/20">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto reveal">
+      <p class="text-xs tracking-[0.25em] uppercase text-gold-dark font-medium mb-4">Cztery kroki</p>
+      <h2 class="font-display text-4xl sm:text-5xl text-ink" style="text-wrap:balance">Jak to działa</h2>
+      <p class="mt-5 text-ink-soft leading-relaxed">Od wypełnienia formularza do obecności w naszej prywatnej grupie dzieli Cię tylko kilka minut.</p>
+    </div>
+
+    <div class="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-14 relative">
+      <div class="hidden lg:block absolute top-7 left-[12%] right-[12%] h-px bg-gradient-to-r from-transparent via-gold to-transparent"></div>
+
+      <div class="reveal text-center lg:text-left">
+        <span class="num-roman text-5xl text-burgundy/80 block mb-4">I</span>
+        <h3 class="font-display text-xl text-ink mb-2">Wypełniasz formularz</h3>
+        <p class="text-sm text-ink-soft leading-relaxed">Opisujesz siebie i osobę, której szukasz, i dodajesz trzy zdjęcia do swojej oferty.</p>
+      </div>
+      <div class="reveal text-center lg:text-left" style="transition-delay:.1s">
+        <span class="num-roman text-5xl text-burgundy/80 block mb-4">II</span>
+        <h3 class="font-display text-xl text-ink mb-2">Wybierasz pakiet</h3>
+        <p class="text-sm text-ink-soft leading-relaxed">Standard (49 zł) lub Premium (99 zł) — zależnie od zasięgu i wsparcia doradcy.</p>
+      </div>
+      <div class="reveal text-center lg:text-left" style="transition-delay:.2s">
+        <span class="num-roman text-5xl text-burgundy/80 block mb-4">III</span>
+        <h3 class="font-display text-xl text-ink mb-2">Płacisz bezpiecznie</h3>
+        <p class="text-sm text-ink-soft leading-relaxed">Szybka, szyfrowana płatność online — bez zbędnych formalności i telefonów.</p>
+      </div>
+      <div class="reveal text-center lg:text-left" style="transition-delay:.3s">
+        <span class="num-roman text-5xl text-burgundy/80 block mb-4">IV</span>
+        <h3 class="font-display text-xl text-ink mb-2">Trafiasz do grupy</h3>
+        <p class="text-sm text-ink-soft leading-relaxed">Twoja oferta zostaje zweryfikowana i przekazana do prywatnej grupy naszego biura.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PAKIETY ===================== -->
+<section id="pakiety" class="py-24 md:py-28">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto reveal">
+      <p class="text-xs tracking-[0.25em] uppercase text-gold-dark font-medium mb-4">Wybór doradców</p>
+      <h2 class="font-display text-4xl sm:text-5xl text-ink" style="text-wrap:balance">Dwa pakiety, jeden cel</h2>
+      <p class="mt-5 text-ink-soft leading-relaxed">Wybierz zakres promocji dopasowany do Twoich oczekiwań. Obie ścieżki prowadzą do tej samej, zamkniętej grupy.</p>
+    </div>
+
+    <div class="mt-16 grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      <!-- Standard -->
+      <div class="reveal border border-beige-200 bg-cream-100 p-9 flex flex-col">
+        <h3 class="font-display text-2xl text-ink mb-1">Standard</h3>
+        <p class="text-sm text-ink-soft mb-6">Solidny start Twojej oferty.</p>
+        <p class="font-display text-5xl text-ink mb-8">49 <span class="text-2xl align-top">zł</span></p>
+        <ul class="space-y-4 text-sm text-ink-soft flex-1">
+          <li class="flex gap-3"><svg class="w-5 h-5 text-burgundy shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Publikacja oferty w prywatnej grupie</li>
+          <li class="flex gap-3"><svg class="w-5 h-5 text-burgundy shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Widoczność przez 30 dni</li>
+          <li class="flex gap-3"><svg class="w-5 h-5 text-burgundy shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Podstawowa weryfikacja przez doradcę</li>
+          <li class="flex gap-3"><svg class="w-5 h-5 text-burgundy shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>3 zdjęcia w profilu</li>
+          <li class="flex gap-3"><svg class="w-5 h-5 text-burgundy shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Wsparcie mailowe</li>
+        </ul>
+        <button data-select-package="standard" data-nav-package href="#dodaj-oferte" class="mt-9 w-full border border-burgundy text-burgundy hover:bg-burgundy hover:text-cream-100 transition-colors py-3.5 text-sm tracking-wide">Wybieram Standard</button>
+      </div>
+
+      <!-- Premium -->
+      <div class="reveal relative border-2 border-burgundy bg-cream-100 p-9 flex flex-col shadow-soft" style="transition-delay:.1s">
+        <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-burgundy text-cream-100 text-xs tracking-[0.2em] uppercase px-4 py-1.5">Poleca doradca</span>
+        <h3 class="font-display text-2xl text-ink mb-1 mt-2">Premium</h3>
+        <p class="text-sm text-ink-soft mb-6">Pełne wsparcie i najwyższa widoczność.</p>
+        <p class="font-display text-5xl text-burgundy mb-8">99 <span class="text-2xl align-top">zł</span></p>
+        <ul class="space-y-4 text-sm text-ink-soft flex-1">
+          <li class="flex gap-3"><svg class="w-5 h-5 text-burgundy shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span><strong class="text-ink">Wszystko z pakietu Standard</strong></span></li>
+          <li class="flex gap-3"><svg class="w-5 h-5 text-burgundy shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Priorytetowe umieszczenie oferty</li>
+          <li class="flex gap-3"><svg class="w-5 h-5 text-burgundy shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Widoczność przez 90 dni</li>
+          <li class="flex gap-3"><svg class="w-5 h-5 text-burgundy shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Indywidualna konsultacja telefoniczna</li>
+          <li class="flex gap-3"><svg class="w-5 h-5 text-burgundy shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Redakcja opisu przez copywritera</li>
+          <li class="flex gap-3"><svg class="w-5 h-5 text-burgundy shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Oznaczenie „Oferta polecana”</li>
+        </ul>
+        <button data-select-package="premium" data-nav-package href="#dodaj-oferte" class="mt-9 w-full btn-primary py-3.5 text-sm tracking-wide">Wybieram Premium</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DODAJ OFERTĘ (FORM) ===================== -->
+<section id="dodaj-oferte" class="py-24 md:py-28 bg-beige-100/60 border-y border-gold/20">
+  <div class="max-w-5xl mx-auto px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto reveal">
+      <p class="text-xs tracking-[0.25em] uppercase text-gold-dark font-medium mb-4">Formularz zgłoszeniowy</p>
+      <h2 class="font-display text-4xl sm:text-5xl text-ink" style="text-wrap:balance">Dodaj swoją ofertę</h2>
+      <p class="mt-5 text-ink-soft leading-relaxed">Wypełnij pola poniżej szczerze i spokojnie — to od nich zaczyna się poważna znajomość.</p>
+    </div>
+
+    <form id="offer-form" novalidate class="mt-16 bg-cream-100 border border-gold/25 shadow-soft p-6 sm:p-10 lg:p-14">
+
+      <!-- Package selector -->
+      <div class="mb-14">
+        <span class="field-label !text-sm !mb-5 block">Krok 1 — wybierz pakiet</span>
+        <div class="grid sm:grid-cols-2 gap-6">
+          <button type="button" data-form-package="standard" class="pkg-card relative text-left border-2 border-beige-200 p-6 focus-visible:outline focus-visible:outline-2">
+            <span class="select-badge absolute top-4 right-4 w-6 h-6 rounded-full bg-burgundy flex items-center justify-center">
+              <svg class="w-3.5 h-3.5 text-cream-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            </span>
+            <p class="text-sm tracking-wide uppercase text-gold-dark mb-1">Standard</p>
+            <p class="font-display text-3xl text-ink">49 zł</p>
+            <p class="mt-2 text-xs text-ink-soft">30 dni widoczności, weryfikacja doradcy</p>
+          </button>
+          <button type="button" data-form-package="premium" class="pkg-card relative text-left border-2 border-beige-200 p-6 focus-visible:outline focus-visible:outline-2">
+            <span class="select-badge absolute top-4 right-4 w-6 h-6 rounded-full bg-burgundy flex items-center justify-center">
+              <svg class="w-3.5 h-3.5 text-cream-100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            </span>
+            <span class="absolute -top-3 left-6 bg-burgundy text-cream-100 text-[0.65rem] tracking-[0.2em] uppercase px-3 py-1">Polecany</span>
+            <p class="text-sm tracking-wide uppercase text-gold-dark mb-1">Premium</p>
+            <p class="font-display text-3xl text-burgundy">99 zł</p>
+            <p class="mt-2 text-xs text-ink-soft">90 dni, priorytet, konsultacja i redakcja</p>
+          </button>
+        </div>
+        <p id="package-error" class="hidden mt-3 text-sm text-[#B0403F]">Wybierz jeden z pakietów, aby kontynuować.</p>
+      </div>
+
+      <!-- Personal data -->
+      <div class="mb-14">
+        <span class="field-label !text-sm !mb-5 block">Krok 2 — Twoje dane</span>
+        <div class="grid sm:grid-cols-2 gap-6">
+          <div>
+            <label class="field-label" for="f-name">Imię i nazwisko</label>
+            <input required id="f-name" name="name" type="text" class="field-input" placeholder="np. Marek Kowalski">
+          </div>
+          <div>
+            <label class="field-label" for="f-age">Wiek</label>
+            <input required id="f-age" name="age" type="number" min="18" max="99" class="field-input" placeholder="np. 47">
+          </div>
+          <div>
+            <label class="field-label" for="f-city">Miasto / Województwo</label>
+            <input required id="f-city" name="city" type="text" class="field-input" placeholder="np. Kraków, małopolskie">
+          </div>
+          <div>
+            <label class="field-label" for="f-height">Wzrost (cm)</label>
+            <input id="f-height" name="height" type="number" min="140" max="220" class="field-input" placeholder="np. 182">
+          </div>
+          <div>
+            <label class="field-label" for="f-education">Wykształcenie</label>
+            <select id="f-education" name="education" class="field-input">
+              <option value="">Wybierz…</option>
+              <option>Podstawowe</option>
+              <option>Zawodowe</option>
+              <option>Średnie</option>
+              <option>Wyższe licencjackie</option>
+              <option>Wyższe magisterskie</option>
+            </select>
+          </div>
+          <div>
+            <label class="field-label" for="f-job">Zawód</label>
+            <input id="f-job" name="job" type="text" class="field-input" placeholder="np. przedsiębiorca">
+          </div>
+        </div>
+      </div>
+
+      <!-- About -->
+      <div class="mb-14">
+        <span class="field-label !text-sm !mb-5 block">Krok 3 — Twoja historia</span>
+        <div class="grid gap-6">
+          <div>
+            <label class="field-label" for="f-search">Szukam</label>
+            <textarea id="f-search" name="search" rows="2" class="field-input" placeholder="np. kobiety ciepłej, samodzielnej, gotowej na poważny związek"></textarea>
+          </div>
+          <div>
+            <label class="field-label" for="f-about">O sobie</label>
+            <textarea required id="f-about" name="about" rows="6" class="field-input" placeholder="Opowiedz o sobie: charakterze, wartościach, tym, co wypełnia Twoje dni i czego szukasz w drugim człowieku…"></textarea>
+          </div>
+          <div>
+            <label class="field-label" for="f-expect">Czego oczekuję od partnerki</label>
+            <textarea id="f-expect" name="expect" rows="4" class="field-input" placeholder="Jakie cechy i wartości są dla Ciebie najważniejsze…"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- Photos -->
+      <div class="mb-14">
+        <span class="field-label !text-sm !mb-2 block">Krok 4 — zdjęcia</span>
+        <p class="text-sm text-ink-soft mb-5">Dodaj dokładnie trzy zdjęcia — najlepiej jedno portretowe i dwa naturalne, z codziennego życia.</p>
+        <div class="grid grid-cols-3 gap-4 max-w-md">
+          <label class="photo-slot cursor-pointer flex items-center justify-center" data-slot="0">
+            <input type="file" accept="image/*" class="hidden photo-input" data-slot-input="0">
+            <span class="slot-placeholder flex flex-col items-center gap-2 text-gold-dark px-2 text-center">
+              <svg viewBox="0 0 24 24" class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8a2 2 0 0 1 2-2h2l1.5-2h5L16 6h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8z"/><circle cx="12" cy="13" r="3.5"/></svg>
+              <span class="text-xs">Zdjęcie 1</span>
+            </span>
+          </label>
+          <label class="photo-slot cursor-pointer flex items-center justify-center" data-slot="1">
+            <input type="file" accept="image/*" class="hidden photo-input" data-slot-input="1">
+            <span class="slot-placeholder flex flex-col items-center gap-2 text-gold-dark px-2 text-center">
+              <svg viewBox="0 0 24 24" class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8a2 2 0 0 1 2-2h2l1.5-2h5L16 6h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8z"/><circle cx="12" cy="13" r="3.5"/></svg>
+              <span class="text-xs">Zdjęcie 2</span>
+            </span>
+          </label>
+          <label class="photo-slot cursor-pointer flex items-center justify-center" data-slot="2">
+            <input type="file" accept="image/*" class="hidden photo-input" data-slot-input="2">
+            <span class="slot-placeholder flex flex-col items-center gap-2 text-gold-dark px-2 text-center">
+              <svg viewBox="0 0 24 24" class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8a2 2 0 0 1 2-2h2l1.5-2h5L16 6h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8z"/><circle cx="12" cy="13" r="3.5"/></svg>
+              <span class="text-xs">Zdjęcie 3</span>
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Checkboxes -->
+      <div class="mb-12 space-y-4 max-w-2xl">
+        <label class="flex items-start gap-3 cursor-pointer">
+          <input type="checkbox" required id="c-regulamin" class="sr-only peer">
+          <span class="checkbox-custom mt-0.5"><svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <span class="text-sm text-ink-soft">Zapoznałem się z <a href="#regulamin" data-nav class="text-burgundy underline underline-offset-2">regulaminem serwisu</a> i akceptuję jego warunki.</span>
+        </label>
+        <label class="flex items-start gap-3 cursor-pointer">
+          <input type="checkbox" required id="c-rights" class="sr-only peer">
+          <span class="checkbox-custom mt-0.5"><svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <span class="text-sm text-ink-soft">Oświadczam, że przesłane treści i zdjęcia są zgodne z prawdą i nie naruszają praw osób trzecich.</span>
+        </label>
+        <p id="checkbox-error" class="hidden text-sm text-[#B0403F]">Oba oświadczenia są wymagane, aby przesłać ofertę.</p>
+      </div>
+
+      <!-- Submit -->
+      <div class="border-t border-beige-200 pt-9 flex flex-col items-center text-center">
+        <p class="text-sm text-ink-soft mb-1">Do zapłaty</p>
+        <p id="price-display" class="font-display text-4xl text-burgundy mb-6">— zł</p>
+        <button type="submit" id="pay-button" class="btn-primary w-full sm:w-auto px-14 py-4 text-base tracking-wide inline-flex items-center justify-center gap-3">
+          <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M7 10V7a5 5 0 0 1 10 0v3"/></svg>
+          <span id="pay-button-label">Zapłać bezpiecznie</span>
+        </button>
+        <div class="mt-6 flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs text-ink-soft/80 tracking-wide">
+          <span>SSL · płatność szyfrowana</span>
+          <span>Karta</span>
+          <span>BLIK</span>
+          <span>Przelew online</span>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ===================== O NAS + TESTIMONIALS ===================== -->
+<section id="o-nas" class="py-24 md:py-28">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-16 items-start">
+      <div class="reveal">
+        <p class="text-xs tracking-[0.25em] uppercase text-gold-dark font-medium mb-4">O nas</p>
+        <h2 class="font-display text-4xl sm:text-5xl text-ink mb-6" style="text-wrap:balance">Tradycja spotyka dyskretną wygodę</h2>
+        <p class="text-ink-soft leading-relaxed mb-5">Nasze biuro matrymonialne od wielu lat towarzyszy osobom, które szukają czegoś więcej niż przelotnej znajomości — poważnego, trwałego związku. Pracujemy kameralnie: każda para doradców zna swoich kandydatów osobiście.</p>
+        <p class="text-ink-soft leading-relaxed">„Droga do Miłości” to nasze rozszerzenie dla mężczyzn, którzy chcą działać szybko, bez oczekiwania na najbliższy termin spotkania stacjonarnego. Formularz online, ta sama staranność weryfikacji, ten sam krąg zaufanych osób.</p>
+        <div class="mt-9 ornament-rule"></div>
+        <div class="mt-9 grid grid-cols-3 gap-6 text-center">
+          <div>
+            <p class="font-display text-3xl text-burgundy">15+</p>
+            <p class="text-xs text-ink-soft mt-1 tracking-wide">lat doświadczenia</p>
+          </div>
+          <div>
+            <p class="font-display text-3xl text-burgundy">100%</p>
+            <p class="text-xs text-ink-soft mt-1 tracking-wide">ofert weryfikowanych ręcznie</p>
+          </div>
+          <div>
+            <p class="font-display text-3xl text-burgundy">Poufne</p>
+            <p class="text-xs text-ink-soft mt-1 tracking-wide">grono odbiorców</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <blockquote class="reveal bg-beige-100/70 border-l-2 border-gold p-7">
+          <p class="font-display italic text-lg text-ink leading-relaxed">„Po latach wahania w końcu odważyłem się napisać o sobie szczerze. Po dwóch tygodniach poznałem kobietę, z którą teraz planuję wspólną przyszłość.”</p>
+          <footer class="mt-4 text-sm text-ink-soft tracking-wide">— Andrzej, 54 lata, Kraków</footer>
+        </blockquote>
+        <blockquote class="reveal bg-beige-100/70 border-l-2 border-gold p-7" style="transition-delay:.1s">
+          <p class="font-display italic text-lg text-ink leading-relaxed">„Doceniłem, że cała sprawa jest dyskretna i nikt z mojego otoczenia o niczym nie wie. Doradczyni odezwała się jeszcze tego samego dnia.”</p>
+          <footer class="mt-4 text-sm text-ink-soft tracking-wide">— Wojciech, 48 lat, Wrocław</footer>
+        </blockquote>
+        <blockquote class="reveal bg-beige-100/70 border-l-2 border-gold p-7" style="transition-delay:.2s">
+          <p class="font-display italic text-lg text-ink leading-relaxed">„Pakiet Premium był wart każdej złotówki — rozmowa z doradcą pomogła mi lepiej opisać to, czego naprawdę szukam.”</p>
+          <footer class="mt-4 text-sm text-ink-soft tracking-wide">— Piotr, 61 lat, Gdańsk</footer>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== REGULAMIN ===================== -->
+<section id="regulamin" class="py-24 md:py-28 bg-beige-100/60 border-y border-gold/20">
+  <div class="max-w-3xl mx-auto px-6 lg:px-8">
+    <div class="text-center reveal">
+      <p class="text-xs tracking-[0.25em] uppercase text-gold-dark font-medium mb-4">Zasady serwisu</p>
+      <h2 class="font-display text-4xl sm:text-5xl text-ink" style="text-wrap:balance">Regulamin</h2>
+      <p class="mt-5 text-ink-soft leading-relaxed">Najważniejsze zasady korzystania z usługi „Droga do Miłości”. Pełna treść regulaminu dostępna jest również w naszym biurze stacjonarnym.</p>
+    </div>
+
+    <div class="mt-12 reveal divide-y divide-gold/25 border-y border-gold/25">
+      <details class="py-5 group" open>
+        <summary class="flex items-center justify-between gap-4">
+          <span class="font-display text-xl text-ink">1. Warunki udziału</span>
+          <svg class="chev w-5 h-5 text-burgundy shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <p class="mt-3 text-sm text-ink-soft leading-relaxed">Usługa dostępna jest wyłącznie dla osób pełnoletnich, deklarujących poważny zamiar zawarcia trwałego związku. Zabronione jest zamieszczanie treści fałszywych, wprowadzających w błąd lub naruszających dobre obyczaje.</p>
+      </details>
+      <details class="py-5 group">
+        <summary class="flex items-center justify-between gap-4">
+          <span class="font-display text-xl text-ink">2. Weryfikacja ofert</span>
+          <svg class="chev w-5 h-5 text-burgundy shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <p class="mt-3 text-sm text-ink-soft leading-relaxed">Każda oferta jest ręcznie sprawdzana przez doradcę biura przed publikacją. Zastrzegamy sobie prawo do odmowy publikacji treści niespełniających standardów serwisu, bez podania szczegółowej przyczyny.</p>
+      </details>
+      <details class="py-5 group">
+        <summary class="flex items-center justify-between gap-4">
+          <span class="font-display text-xl text-ink">3. Płatności</span>
+          <svg class="chev w-5 h-5 text-burgundy shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <p class="mt-3 text-sm text-ink-soft leading-relaxed">Płatność za pakiet Standard (49 zł) lub Premium (99 zł) następuje z góry, przed publikacją oferty. Po opublikowaniu oferty w prywatnej grupie płatność nie podlega zwrotowi.</p>
+      </details>
+      <details class="py-5 group">
+        <summary class="flex items-center justify-between gap-4">
+          <span class="font-display text-xl text-ink">4. Ochrona danych</span>
+          <svg class="chev w-5 h-5 text-burgundy shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <p class="mt-3 text-sm text-ink-soft leading-relaxed">Dane przetwarzane są zgodnie z obowiązującymi przepisami o ochronie danych osobowych (RODO) i udostępniane wyłącznie w obrębie zamkniętej grupy odbiorców naszego biura.</p>
+      </details>
+      <details class="py-5 group">
+        <summary class="flex items-center justify-between gap-4">
+          <span class="font-display text-xl text-ink">5. Usunięcie oferty</span>
+          <svg class="chev w-5 h-5 text-burgundy shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <p class="mt-3 text-sm text-ink-soft leading-relaxed">Klient może w dowolnym momencie poprosić o usunięcie swojej oferty, kontaktując się z biurem. Zastrzegamy sobie również prawo do usunięcia oferty naruszającej niniejszy regulamin.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="bg-ink text-cream-100/90 pt-16 pb-8">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <svg viewBox="0 0 100 100" class="w-9 h-9 text-gold shrink-0">
+            <circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="2"/>
+            <circle cx="50" cy="50" r="37" fill="none" stroke="currentColor" stroke-width="1"/>
+            <text x="50" y="61" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-style="italic" font-size="34" fill="currentColor">DM</text>
+          </svg>
+          <span class="font-display text-xl">Droga do <span class="font-script text-gold text-[1.3rem]">Miłości</span></span>
+        </div>
+        <p class="text-sm text-cream-100/60 leading-relaxed">Dyskretna usługa dodatkowa biura matrymonialnego z wieloletnią tradycją.</p>
+      </div>
+      <div>
+        <p class="text-xs tracking-[0.2em] uppercase text-gold mb-4">Nawigacja</p>
+        <ul class="space-y-2.5 text-sm text-cream-100/70">
+          <li><a href="#jak-to-dziala" data-nav class="hover:text-gold transition-colors">Jak to działa</a></li>
+          <li><a href="#pakiety" data-nav class="hover:text-gold transition-colors">Pakiety</a></li>
+          <li><a href="#dodaj-oferte" data-nav class="hover:text-gold transition-colors">Dodaj ofertę</a></li>
+          <li><a href="#o-nas" data-nav class="hover:text-gold transition-colors">O nas</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-xs tracking-[0.2em] uppercase text-gold mb-4">Informacje prawne</p>
+        <ul class="space-y-2.5 text-sm text-cream-100/70">
+          <li><a href="#regulamin" data-nav class="hover:text-gold transition-colors">Regulamin</a></li>
+          <li><a href="#regulamin" data-nav class="hover:text-gold transition-colors">Polityka prywatności</a></li>
+          <li><a href="#regulamin" data-nav class="hover:text-gold transition-colors">RODO</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-xs tracking-[0.2em] uppercase text-gold mb-4">Zaufanie</p>
+        <ul class="space-y-2.5 text-sm text-cream-100/70">
+          <li>Płatność szyfrowana SSL</li>
+          <li>Weryfikacja każdej oferty</li>
+          <li>Pełna dyskrecja danych</li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-14 pt-6 border-t border-cream-100/10 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-cream-100/50">
+      <p>© 2026 Droga do Miłości. Wszelkie prawa zastrzeżone.</p>
+      <p class="font-script text-gold text-sm">Bo miłość zasługuje na czas.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ===================== SUCCESS MODAL ===================== -->
+<div id="success-modal" class="hidden fixed inset-0 z-[60] modal-overlay items-center justify-center p-4">
+  <canvas id="confetti-canvas"></canvas>
+  <div class="relative bg-cream-100 max-w-lg w-full p-8 sm:p-12 text-center shadow-soft border border-gold/40 max-h-[90vh] overflow-y-auto">
+    <button id="close-success" aria-label="Zamknij" class="absolute top-4 right-4 text-ink-soft hover:text-burgundy p-1">
+      <svg viewBox="0 0 24 24" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <svg viewBox="0 0 100 100" class="w-20 h-20 text-burgundy mx-auto mb-6">
+      <circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="2"/>
+      <circle cx="50" cy="50" r="37" fill="none" stroke="currentColor" stroke-width="1"/>
+      <path d="M35 51l10 10 20-22" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <h3 class="font-display text-3xl sm:text-4xl text-ink mb-3" style="text-wrap:balance">Twoja oferta została wysłana</h3>
+    <p class="text-ink-soft leading-relaxed mb-2">Dziękujemy za zaufanie. Twoje zgłoszenie trafiło do naszych doradców i w ciągu 24 godzin pojawi się w prywatnej grupie biura na Facebooku.</p>
+    <p id="modal-package-info" class="text-sm text-gold-dark tracking-wide mb-8">Pakiet: Standard · 49 zł</p>
+    <div class="flex flex-col sm:flex-row gap-3 justify-center">
+      <button id="show-sample" class="btn-primary px-8 py-3.5 text-sm tracking-wide">Zobacz przykładową ofertę</button>
+      <button id="close-success-2" class="px-8 py-3.5 text-sm tracking-wide border border-ink/20 hover:border-burgundy hover:text-burgundy transition-colors">Zamknij</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== SAMPLE OFFER MODAL ===================== -->
+<div id="sample-modal" class="hidden fixed inset-0 z-[70] modal-overlay items-center justify-center p-4">
+  <div class="relative bg-cream-100 max-w-md w-full p-7 shadow-soft border border-gold/40 max-h-[90vh] overflow-y-auto">
+    <button id="close-sample" aria-label="Zamknij" class="absolute top-4 right-4 text-ink-soft hover:text-burgundy p-1">
+      <svg viewBox="0 0 24 24" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <span class="inline-block bg-burgundy text-cream-100 text-[0.65rem] tracking-[0.2em] uppercase px-3 py-1 mb-4">Oferta Premium</span>
+    <div class="grid grid-cols-3 gap-2 mb-5">
+      <div class="aspect-[3/4] bg-beige-200 flex items-center justify-center text-gold-dark text-xs">Zdjęcie</div>
+      <div class="aspect-[3/4] bg-beige-200 flex items-center justify-center text-gold-dark text-xs">Zdjęcie</div>
+      <div class="aspect-[3/4] bg-beige-200 flex items-center justify-center text-gold-dark text-xs">Zdjęcie</div>
+    </div>
+    <h4 class="font-display text-2xl text-ink">Tomasz, 45 lat</h4>
+    <p class="text-sm text-gold-dark tracking-wide mb-4">Poznań, wielkopolskie · 184 cm · wyższe magisterskie</p>
+    <p class="text-sm text-ink-soft leading-relaxed mb-3"><strong class="text-ink">O sobie:</strong> Inżynier z zamiłowaniem do gór i dobrej książki. Spokojny, konsekwentny, ceniący szczerość ponad efektowne słowa. Szukam kogoś, z kim będę mógł budować wspólne życie krok po kroku.</p>
+    <p class="text-sm text-ink-soft leading-relaxed"><strong class="text-ink">Szuka:</strong> kobiety ciepłej, niezależnej, gotowej na poważny, trwały związek.</p>
+    <p class="mt-5 text-xs text-ink-soft/70 tracking-wide">Przykładowa oferta poglądowa — dane fikcyjne.</p>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- Header shadow on scroll ---------- */
+  const header = document.getElementById('site-header');
+  const onScroll = () => {
+    if (window.scrollY > 12) header.classList.add('shadow-md'); else header.classList.remove('shadow-md');
+  };
+  document.addEventListener('scroll', onScroll, { passive:true });
+  onScroll();
+
+  /* ---------- Mobile menu ---------- */
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  menuToggle.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('hidden') === false;
+    menuToggle.setAttribute('aria-expanded', String(open));
+  });
+
+  /* ---------- Smooth nav + active link + closing mobile menu ---------- */
+  const headerOffset = () => header.offsetHeight;
+  document.querySelectorAll('a[data-nav]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      if (!href || href.charAt(0) !== '#') return;
+      const target = document.querySelector(href);
+      if (!target) return;
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - headerOffset() + 1;
+      window.scrollTo({ top, behavior: reduceMotion ? 'auto' : 'smooth' });
+      if (!mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.add('hidden');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+
+  const navLinks = Array.from(document.querySelectorAll('nav.hidden.lg\\:flex a[data-nav]'));
+  const sections = navLinks.map(l => document.querySelector(l.getAttribute('href'))).filter(Boolean);
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = '#' + entry.target.id;
+        navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === id));
+      }
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  sections.forEach(s => sectionObserver.observe(s));
+
+  /* ---------- Scroll reveal ---------- */
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  /* ---------- Package selection (form) ---------- */
+  const formPkgButtons = Array.from(document.querySelectorAll('[data-form-package]'));
+  const priceDisplay = document.getElementById('price-display');
+  const payLabel = document.getElementById('pay-button-label');
+  const packageError = document.getElementById('package-error');
+  const prices = { standard: 49, premium: 99 };
+  let selectedPackage = null;
+
+  function selectPackage(pkg) {
+    selectedPackage = pkg;
+    formPkgButtons.forEach(btn => btn.classList.toggle('selected', btn.dataset.formPackage === pkg));
+    priceDisplay.textContent = prices[pkg] + ' zł';
+    payLabel.textContent = 'Zapłać bezpiecznie — ' + prices[pkg] + ' zł';
+    packageError.classList.add('hidden');
+  }
+
+  formPkgButtons.forEach(btn => {
+    btn.addEventListener('click', () => selectPackage(btn.dataset.formPackage));
+  });
+
+  /* Package section CTA buttons -> scroll to form + preselect */
+  document.querySelectorAll('[data-select-package]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const pkg = btn.dataset.selectPackage;
+      selectPackage(pkg);
+      const target = document.querySelector('#dodaj-oferte');
+      const top = target.getBoundingClientRect().top + window.scrollY - headerOffset() + 1;
+      window.scrollTo({ top, behavior: reduceMotion ? 'auto' : 'smooth' });
+    });
+  });
+
+  /* ---------- Photo upload ---------- */
+  document.querySelectorAll('.photo-slot').forEach(slot => {
+    const input = slot.querySelector('.photo-input');
+    input.addEventListener('change', () => {
+      const file = input.files && input.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        slot.classList.add('filled');
+        slot.innerHTML = `
+          <img src="${e.target.result}" alt="Podgląd zdjęcia">
+          <button type="button" class="remove-photo absolute top-1.5 right-1.5 w-7 h-7 rounded-full bg-ink/70 hover:bg-burgundy text-cream-100 flex items-center justify-center transition-colors" aria-label="Usuń zdjęcie">
+            <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+          </button>
+          <input type="file" accept="image/*" class="hidden photo-input" data-slot-input="${slot.dataset.slot}">
+        `;
+        attachRemove(slot);
+        attachInputListener(slot);
+      };
+      reader.readAsDataURL(file);
+    });
+  });
+
+  function attachInputListener(slot){
+    const freshInput = slot.querySelector('.photo-input');
+    freshInput.addEventListener('change', () => {
+      const file = freshInput.files && freshInput.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const img = slot.querySelector('img');
+        if (img) img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    });
+  }
+
+  function attachRemove(slot){
+    const removeBtn = slot.querySelector('.remove-photo');
+    removeBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const slotNum = slot.dataset.slot;
+      slot.classList.remove('filled');
+      slot.innerHTML = `
+        <input type="file" accept="image/*" class="hidden photo-input" data-slot-input="${slotNum}">
+        <span class="slot-placeholder flex flex-col items-center gap-2 text-gold-dark px-2 text-center">
+          <svg viewBox="0 0 24 24" class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8a2 2 0 0 1 2-2h2l1.5-2h5L16 6h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8z"/><circle cx="12" cy="13" r="3.5"/></svg>
+          <span class="text-xs">Zdjęcie ${parseInt(slotNum,10)+1}</span>
+        </span>
+      `;
+      const freshInput = slot.querySelector('.photo-input');
+      freshInput.addEventListener('change', () => {
+        const file = freshInput.files && freshInput.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = (ev) => {
+          slot.classList.add('filled');
+          slot.innerHTML = `
+            <img src="${ev.target.result}" alt="Podgląd zdjęcia">
+            <button type="button" class="remove-photo absolute top-1.5 right-1.5 w-7 h-7 rounded-full bg-ink/70 hover:bg-burgundy text-cream-100 flex items-center justify-center transition-colors" aria-label="Usuń zdjęcie">
+              <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            </button>
+            <input type="file" accept="image/*" class="hidden photo-input" data-slot-input="${slotNum}">
+          `;
+          attachRemove(slot);
+          attachInputListener(slot);
+        };
+        reader.readAsDataURL(file);
+      });
+    });
+  }
+
+  /* ---------- Form validation + submit ---------- */
+  const form = document.getElementById('offer-form');
+  const checkboxError = document.getElementById('checkbox-error');
+  const payButton = document.getElementById('pay-button');
+
+  function markInvalid(el){
+    el.classList.add('invalid');
+    el.addEventListener('input', function clear(){ el.classList.remove('invalid'); el.removeEventListener('input', clear); }, { once:true });
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    let valid = true;
+    let firstInvalid = null;
+
+    if (!selectedPackage) {
+      valid = false;
+      packageError.classList.remove('hidden');
+      firstInvalid = firstInvalid || document.querySelector('[data-form-package]');
+    } else {
+      packageError.classList.add('hidden');
+    }
+
+    ['f-name','f-age','f-city','f-about'].forEach(id => {
+      const el = document.getElementById(id);
+      if (!el.value.trim()) {
+        valid = false;
+        markInvalid(el);
+        firstInvalid = firstInvalid || el;
+      }
+    });
+
+    const cRegulamin = document.getElementById('c-regulamin');
+    const cRights = document.getElementById('c-rights');
+    if (!cRegulamin.checked || !cRights.checked) {
+      valid = false;
+      checkboxError.classList.remove('hidden');
+      firstInvalid = firstInvalid || cRegulamin;
+    } else {
+      checkboxError.classList.add('hidden');
+    }
+
+    if (!valid) {
+      form.classList.add('shake');
+      setTimeout(() => form.classList.remove('shake'), 500);
+      if (firstInvalid) {
+        firstInvalid.scrollIntoView({ behavior: reduceMotion ? 'auto':'smooth', block:'center' });
+      }
+      return;
+    }
+
+    payButton.disabled = true;
+    const originalLabel = document.getElementById('pay-button-label').textContent;
+    document.getElementById('pay-button-label').textContent = 'Przetwarzanie płatności…';
+
+    setTimeout(() => {
+      payButton.disabled = false;
+      document.getElementById('pay-button-label').textContent = originalLabel;
+      document.getElementById('modal-package-info').textContent =
+        'Pakiet: ' + (selectedPackage === 'premium' ? 'Premium · 99 zł' : 'Standard · 49 zł');
+      openSuccessModal();
+    }, 900);
+  });
+
+  /* ---------- Success modal + confetti ---------- */
+  const successModal = document.getElementById('success-modal');
+  const sampleModal = document.getElementById('sample-modal');
+  let confettiRAF = null;
+
+  function openSuccessModal(){
+    successModal.classList.remove('hidden');
+    successModal.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+    if (!reduceMotion) startConfetti();
+  }
+  function closeSuccessModal(){
+    successModal.classList.add('hidden');
+    successModal.classList.remove('flex');
+    document.body.style.overflow = '';
+    stopConfetti();
+  }
+  document.getElementById('close-success').addEventListener('click', closeSuccessModal);
+  document.getElementById('close-success-2').addEventListener('click', closeSuccessModal);
+  successModal.addEventListener('click', (e) => { if (e.target === successModal) closeSuccessModal(); });
+
+  document.getElementById('show-sample').addEventListener('click', () => {
+    sampleModal.classList.remove('hidden');
+    sampleModal.classList.add('flex');
+  });
+  function closeSample(){ sampleModal.classList.add('hidden'); sampleModal.classList.remove('flex'); }
+  document.getElementById('close-sample').addEventListener('click', closeSample);
+  sampleModal.addEventListener('click', (e) => { if (e.target === sampleModal) closeSample(); });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    if (!sampleModal.classList.contains('hidden')) closeSample();
+    else if (!successModal.classList.contains('hidden')) closeSuccessModal();
+  });
+
+  const canvas = document.getElementById('confetti-canvas');
+  const ctx = canvas.getContext('2d');
+  let particles = [];
+  const colors = ['#6B1626', '#B08D45', '#D4B876', '#8C2E3F', '#FBF6EA'];
+
+  function resizeCanvas(){
+    canvas.width = successModal.clientWidth;
+    canvas.height = successModal.clientHeight;
+  }
+
+  function startConfetti(){
+    resizeCanvas();
+    particles = Array.from({ length: 140 }, () => ({
+      x: Math.random() * canvas.width,
+      y: -20 - Math.random() * canvas.height * 0.5,
+      w: 5 + Math.random() * 5,
+      h: 8 + Math.random() * 6,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      speed: 2 + Math.random() * 3,
+      drift: (Math.random() - 0.5) * 2,
+      rotation: Math.random() * 360,
+      rotSpeed: (Math.random() - 0.5) * 8,
+    }));
+    let start = performance.now();
+    function frame(now){
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => {
+        p.y += p.speed;
+        p.x += p.drift;
+        p.rotation += p.rotSpeed;
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.rotation * Math.PI / 180);
+        ctx.fillStyle = p.color;
+        ctx.fillRect(-p.w/2, -p.h/2, p.w, p.h);
+        ctx.restore();
+      });
+      particles = particles.filter(p => p.y < canvas.height + 30);
+      if (now - start < 3200 && particles.length) {
+        confettiRAF = requestAnimationFrame(frame);
+      } else {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      }
+    }
+    confettiRAF = requestAnimationFrame(frame);
+  }
+  function stopConfetti(){
+    if (confettiRAF) cancelAnimationFrame(confettiRAF);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+  window.addEventListener('resize', () => { if (!successModal.classList.contains('hidden')) resizeCanvas(); });
+
+})();
+</script>
+</body>
+</html>
