@@ -30,6 +30,7 @@
 </script>
 <style>
   html { scroll-behavior: smooth; }
+  section[id], #rodo { scroll-margin-top: 88px; }
   body { background-color: #faf6ef; color: #2b2b2b; font-family: 'Jost', sans-serif; }
   .font-serif { font-family: 'Cormorant Garamond', serif; }
 
@@ -123,6 +124,7 @@
         <a href="#oferta" class="nav-link hover:text-burgundy transition-colors">Dodaj ofertę</a>
         <a href="#onas" class="nav-link hover:text-burgundy transition-colors">O nas</a>
         <a href="#regulamin" class="nav-link hover:text-burgundy transition-colors">Regulamin</a>
+        <a href="#rodo" class="nav-link hover:text-burgundy transition-colors">Klauzula RODO</a>
         <a href="#kontakt" class="nav-link hover:text-burgundy transition-colors">Kontakt</a>
       </nav>
 
@@ -144,6 +146,7 @@
       <a href="#oferta" class="mob-link py-3 border-b border-beige/70">Dodaj ofertę</a>
       <a href="#onas" class="mob-link py-3 border-b border-beige/70">O nas</a>
       <a href="#regulamin" class="mob-link py-3 border-b border-beige/70">Regulamin</a>
+      <a href="#rodo" class="mob-link py-3 border-b border-beige/70">Klauzula RODO</a>
       <a href="#kontakt" class="mob-link py-3">Kontakt</a>
       <a href="#oferta" class="mob-link mt-4 text-center bg-burgundy text-cream py-3 rounded-full font-medium">Dodaj ofertę teraz</a>
     </nav>
@@ -238,41 +241,62 @@
       <p class="reveal text-charcoal/70 text-lg font-light">Wybierz opcję dopasowaną do Twoich oczekiwań. Obie oferty publikowane są <span class="text-burgundy font-medium">na zawsze</span>.</p>
     </div>
 
-    <div class="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+    <!-- Quick comparison strip -->
+    <div class="reveal max-w-5xl mx-auto mb-10 grid grid-cols-1 sm:grid-cols-3 gap-3 text-center">
+      <div class="bg-white border border-beige rounded-2xl py-4 px-3">
+        <div class="text-xs uppercase tracking-widest text-gold mb-1">Zakres</div>
+        <div class="text-sm text-charcoal/70"><span class="text-burgundy font-medium">49 zł</span> — sama publikacja oferty<br /><span class="text-burgundy font-medium">99 zł</span> — oferta + dołączenie do grup</div>
+      </div>
+      <div class="bg-white border border-beige rounded-2xl py-4 px-3">
+        <div class="text-xs uppercase tracking-widest text-gold mb-1">Kontakt z Kobietami</div>
+        <div class="text-sm text-charcoal/70"><span class="text-burgundy font-medium">49 zł</span> — to Kobiety piszą do Ciebie<br /><span class="text-burgundy font-medium">99 zł</span> — Ty też możesz pisać pierwszy</div>
+      </div>
+      <div class="bg-white border border-beige rounded-2xl py-4 px-3">
+        <div class="text-xs uppercase tracking-widest text-gold mb-1">Grupy i strony</div>
+        <div class="text-sm text-charcoal/70"><span class="text-burgundy font-medium">49 zł</span> — brak<br /><span class="text-burgundy font-medium">99 zł</span> — 6 grup FB + 2 strony</div>
+      </div>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto items-stretch">
       <!-- 49 zł -->
       <div class="reveal bg-white rounded-3xl p-9 md:p-10 border border-beige shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+        <span class="self-start bg-beige text-burgundy text-xs tracking-widest uppercase px-3 py-1 rounded-full mb-4">Pakiet podstawowy</span>
         <div class="flex items-baseline gap-2 mb-2">
           <span class="font-serif text-5xl font-semibold text-burgundy">49</span>
           <span class="text-xl text-charcoal/70">złotych</span>
         </div>
-        <h3 class="font-serif text-2xl font-semibold text-charcoal mb-4 leading-snug">Dodaj ofertę matrymonialną dla Kobiet</h3>
+        <h3 class="font-serif text-2xl font-semibold text-charcoal mb-4 leading-snug">DODAJ OFERTĘ MATRYMONIALNĄ DLA KOBIET</h3>
         <p class="text-charcoal/75 font-light leading-relaxed mb-6">
-          Dodanie Twojego ogłoszenia dla Kobiet ze Wschodu Europy: Ukrainek, Białorusinek, Rosjanek i innych Kobiet z byłego Związku Radzieckiego. Dostęp do Twojego ogłoszenia będzie miało około <span class="font-medium text-burgundy">17 tysięcy Kobiet</span> — jeśli któraś z nich będzie zainteresowana Tobą, skontaktuje się z Tobą.
+          dodanie Twojego ogłoszenia dla Kobiet ze Wschodu Europy: Ukrainek, Białorusinek, Rosjanek i innych Kobiet z byłego Związku Radzieckiego, dostęp do Twojego ogłoszenia będzie miało około 17 tysięcy Kobiet, jeśli któraś z nich będzie zainteresowana Tobą skontaktuje się z Tobą.
         </p>
-        <ul class="space-y-3 text-charcoal/75 mb-8">
-          <li class="flex gap-3"><span class="text-gold mt-1">✦</span> Publikacja ogłoszenia na zawsze</li>
-          <li class="flex gap-3"><span class="text-gold mt-1">✦</span> Zasięg ok. 17 000 Kobiet</li>
-          <li class="flex gap-3"><span class="text-gold mt-1">✦</span> Bezpośredni kontakt zainteresowanych</li>
+        <ul class="space-y-3 text-charcoal/75 mb-8 border-t border-beige pt-6">
+          <li class="flex gap-3"><span class="text-gold mt-0.5">✓</span> Publikacja ogłoszenia <strong>na zawsze</strong></li>
+          <li class="flex gap-3"><span class="text-gold mt-0.5">✓</span> Zasięg ok. <strong>17 tysięcy Kobiet</strong></li>
+          <li class="flex gap-3"><span class="text-gold mt-0.5">✓</span> Zainteresowane Kobiety kontaktują się z Tobą</li>
+          <li class="flex gap-3 text-charcoal/40"><span class="mt-0.5">✕</span> Bez dołączenia do grup i stron</li>
+          <li class="flex gap-3 text-charcoal/40"><span class="mt-0.5">✕</span> Bez możliwości pisania pierwszy</li>
         </ul>
         <button data-pkg="49" class="pkg-select btn-primary mt-auto w-full bg-burgundy/10 text-burgundy border border-burgundy/30 hover:bg-burgundy hover:text-cream py-3.5 rounded-full font-medium tracking-wide transition-colors">Wybierz pakiet 49 zł</button>
       </div>
 
       <!-- 99 zł -->
-      <div class="reveal relative bg-burgundy text-cream rounded-3xl p-9 md:p-10 shadow-2xl flex flex-col overflow-hidden">
-        <span class="absolute top-6 right-6 bg-gold text-white text-xs tracking-widest uppercase px-3 py-1 rounded-full">Polecany</span>
+      <div class="reveal relative bg-burgundy text-cream rounded-3xl p-9 md:p-10 shadow-2xl flex flex-col overflow-hidden ring-2 ring-gold/60">
+        <span class="absolute top-6 right-6 bg-gold text-white text-xs tracking-widest uppercase px-3 py-1 rounded-full shadow">★ Polecany</span>
+        <span class="self-start bg-cream/15 text-beige text-xs tracking-widest uppercase px-3 py-1 rounded-full mb-4">Pakiet pełny</span>
         <div class="flex items-baseline gap-2 mb-2">
           <span class="font-serif text-5xl font-semibold text-beige">99</span>
           <span class="text-xl text-cream/80">złotych</span>
         </div>
-        <h3 class="font-serif text-2xl font-semibold mb-4 leading-snug">Dodaj ofertę matrymonialną i dołącz do czatu</h3>
+        <h3 class="font-serif text-2xl font-semibold mb-4 leading-snug">DODAJ OFERTĘ MATRYMONIALNĄ i DOŁĄCZ do CZATU</h3>
         <p class="text-cream/85 font-light leading-relaxed mb-6">
-          Wszystko z pakietu 49 zł + zostajesz dodany <span class="font-medium text-beige">na zawsze</span> do 6 grup na Facebooku i na dwie strony internetowe, gdzie jest ponad <span class="font-medium text-beige">12 tysięcy Kobiet</span> ze Wschodu Europy. Będziesz mógł z nimi pisać, poznawać się, umawiać i spotykać. Oferta jest publikowana na zawsze (nie na 30 ani 90 dni).
+          Wszystko z pakietu 49 zł + zostajesz dodany na zawsze do 6 grup na Facebooku i na dwie strony internetowe gdzie jest ponad 12 tysięcy Kobiet ze Wschodu Europy. Będziesz mógł z nimi pisać, poznawać się, umawiać i spotykać. Oferta jest publikowana na zawsze (nie na 30 ani 90 dni).
         </p>
-        <ul class="space-y-3 text-cream/85 mb-8">
-          <li class="flex gap-3"><span class="text-beige mt-1">✦</span> Wszystko z pakietu 49 zł</li>
-          <li class="flex gap-3"><span class="text-beige mt-1">✦</span> Dołączenie do 6 grup na Facebooku</li>
-          <li class="flex gap-3"><span class="text-beige mt-1">✦</span> Dostęp do 2 stron internetowych (12 000+ Kobiet)</li>
-          <li class="flex gap-3"><span class="text-beige mt-1">✦</span> Możliwość pisania, poznawania i spotkań</li>
+        <ul class="space-y-3 text-cream/90 mb-8 border-t border-cream/20 pt-6">
+          <li class="flex gap-3"><span class="text-beige mt-0.5">✓</span> <strong>Wszystko z pakietu 49 zł</strong></li>
+          <li class="flex gap-3"><span class="text-beige mt-0.5">✓</span> Dodanie <strong>na zawsze</strong> do <strong>6 grup na Facebooku</strong></li>
+          <li class="flex gap-3"><span class="text-beige mt-0.5">✓</span> Dostęp do <strong>2 stron internetowych</strong> (12 tys. Kobiet)</li>
+          <li class="flex gap-3"><span class="text-beige mt-0.5">✓</span> <strong>Ty piszesz pierwszy</strong> — poznajesz, umawiasz i spotykasz</li>
+          <li class="flex gap-3"><span class="text-beige mt-0.5">✓</span> Publikacja na zawsze (nie na 30 ani 90 dni)</li>
         </ul>
         <button data-pkg="99" class="pkg-select btn-primary mt-auto w-full bg-cream text-burgundy hover:bg-beige py-3.5 rounded-full font-medium tracking-wide">Wybierz pakiet 99 zł</button>
       </div>
@@ -405,10 +429,10 @@
         </label>
         <label class="flex gap-3 items-start cursor-pointer group">
           <input type="checkbox" name="rodo" required class="chk mt-1 w-5 h-5 accent-burgundy shrink-0" />
-          <span class="text-sm text-charcoal/80 group-hover:text-charcoal">Zapoznałem się z <a href="#regulamin" class="text-burgundy underline underline-offset-2 font-medium">Klauzulą Informacyjną RODO</a> i wyrażam zgodę na przetwarzanie moich danych osobowych.</span>
+          <span class="text-sm text-charcoal/80 group-hover:text-charcoal">Zapoznałem się z <a href="#rodo" class="text-burgundy underline underline-offset-2 font-medium">Klauzulą Informacyjną RODO</a> i wyrażam zgodę na przetwarzanie moich danych osobowych.</span>
         </label>
       </div>
-      <p id="form-error" class="hidden text-sm text-burgundy mt-5 bg-burgundy/5 border border-burgundy/20 rounded-xl px-4 py-3">Prosimy uzupełnić wszystkie wymagane pola oraz zaznaczyć oba oświadczenia.</p>
+      <p id="form-error" class="hidden text-sm text-burgundy mt-5 bg-burgundy/5 border border-burgundy/20 rounded-xl px-4 py-3">Prosimy uzupełnić wszystkie wymagane pola oraz zaznaczyć wszystkie trzy oświadczenia.</p>
 
       <!-- Submit -->
       <button type="submit" id="pay-btn" class="btn-primary mt-9 w-full bg-burgundy text-cream py-5 rounded-full font-medium text-lg tracking-wide shadow-lg flex items-center justify-center gap-3">
@@ -507,32 +531,37 @@
     <div class="reveal bg-white rounded-3xl border border-beige shadow-lg p-8 md:p-12 space-y-8">
       <div>
         <h3 class="font-serif text-2xl font-semibold text-charcoal mb-3">§1. Postanowienia ogólne</h3>
-        <p class="text-charcoal/70 font-light leading-relaxed">Niniejszy Regulamin określa zasady korzystania z usług Polskiego Biura Matrymonialnego „Droga do Miłości”. Złożenie oferty jest równoznaczne z akceptacją poniższych postanowień. <span class="italic text-charcoal/50">[Treść placeholder — miejsce na pełny regulamin biura.]</span></p>
+        <p class="text-charcoal/70 font-light leading-relaxed">Niniejszy Regulamin określa zasady korzystania z usług Polskiego Biura Matrymonialnego „Droga do Miłości”. Złożenie oferty za pośrednictwem formularza jest równoznaczne z akceptacją poniższych postanowień oraz Klauzuli Informacyjnej RODO.</p>
       </div>
       <div>
         <h3 class="font-serif text-2xl font-semibold text-charcoal mb-3">§2. Zakres usług</h3>
-        <p class="text-charcoal/70 font-light leading-relaxed">Biuro świadczy usługi polegające na publikacji ofert matrymonialnych oraz — w ramach pakietu 99 zł — dołączeniu Klienta do grup i stron zrzeszających Kobiety ze Wschodu Europy. Oferty publikowane są na zawsze. <span class="italic text-charcoal/50">[Treść placeholder.]</span></p>
+        <p class="text-charcoal/70 font-light leading-relaxed">W ramach pakietu <strong>49 zł</strong> Biuro publikuje ogłoszenie Klienta i udostępnia je Kobietom ze Wschodu Europy — zainteresowane Kobiety kontaktują się z Klientem bezpośrednio. W ramach pakietu <strong>99 zł</strong> Klient otrzymuje wszystko z pakietu 49 zł, a dodatkowo zostaje dołączony na zawsze do 6 grup na Facebooku oraz na 2 strony internetowe, dzięki czemu może samodzielnie pisać, poznawać się, umawiać i spotykać. Wszystkie oferty publikowane są na zawsze — nie na 30 ani 90 dni.</p>
       </div>
       <div>
         <h3 class="font-serif text-2xl font-semibold text-charcoal mb-3">§3. Oświadczenia Klienta</h3>
+        <p class="text-charcoal/70 font-light leading-relaxed mb-4">Składając ofertę, Klient potwierdza następujące oświadczenia:</p>
         <ul class="space-y-4 text-charcoal/70 font-light">
           <li class="flex gap-3"><span class="text-gold mt-1">✦</span> Zapoznałem się z REGULAMINEM POLSKIEGO BIURA MATRYMONIALNEGO i akceptuję jego postanowienia.</li>
           <li class="flex gap-3"><span class="text-gold mt-1">✦</span> Oświadczam, że jestem autorem treści zawartych w zgłoszeniu oraz że nie naruszają one jakichkolwiek praw osób trzecich.</li>
+          <li class="flex gap-3"><span class="text-gold mt-1">✦</span> Zapoznałem się z Klauzulą Informacyjną RODO i wyrażam zgodę na przetwarzanie moich danych osobowych.</li>
         </ul>
       </div>
       <div>
         <h3 class="font-serif text-2xl font-semibold text-charcoal mb-3">§4. Płatności</h3>
-        <p class="text-charcoal/70 font-light leading-relaxed">Opłaty za pakiety wynoszą odpowiednio 49 zł oraz 99 zł i są jednorazowe. Płatność odbywa się w sposób bezpieczny i szyfrowany. <span class="italic text-charcoal/50">[Treść placeholder.]</span></p>
+        <p class="text-charcoal/70 font-light leading-relaxed">Opłaty za pakiety wynoszą odpowiednio 49 zł oraz 99 zł i są jednorazowe. Płatność odbywa się w sposób bezpieczny i szyfrowany, a po jej dokonaniu oferta zostaje przekazana do publikacji, a Klient otrzymuje potwierdzenie na wskazany adres e-mail.</p>
       </div>
     </div>
 
     <!-- Klauzula Informacyjna RODO -->
-    <div id="rodo" class="reveal mt-10 bg-white rounded-3xl border border-beige shadow-lg p-8 md:p-12">
-      <div class="flex items-center gap-3 mb-6">
-        <span class="grid place-items-center w-11 h-11 rounded-full bg-beige-light text-burgundy shrink-0">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l7 3v6c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
+    <div id="rodo" class="reveal mt-12 bg-white rounded-3xl border-2 border-burgundy/25 shadow-xl p-8 md:p-12">
+      <div class="text-center mb-3">
+        <span class="ornament text-gold text-sm tracking-[.3em] uppercase">Ochrona danych osobowych</span>
+      </div>
+      <div class="flex items-center justify-center gap-3 mb-8">
+        <span class="grid place-items-center w-12 h-12 rounded-full bg-beige-light text-burgundy shrink-0">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l7 3v6c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
         </span>
-        <h3 class="font-serif text-2xl md:text-3xl font-semibold text-burgundy">Klauzula Informacyjna RODO</h3>
+        <h3 class="font-serif text-3xl md:text-4xl font-semibold text-burgundy text-center">Klauzula Informacyjna RODO</h3>
       </div>
       <div class="space-y-5 text-charcoal/75 font-light leading-relaxed">
         <p>Zgodnie z art. 6 ust. 1 lit. f RODO informujemy, iż Pana dane osobowe, przekazane nam za pośrednictwem naszej strony internetowej/formularza kontaktowego lub w inny sposób (przekazanie wizytówki, przesłanie pocztą elektroniczną, poprzez kontakt telefoniczny, Facebook), są gromadzone, przetwarzane i przechowywane w celu prowadzenia korespondencji z Państwem i w celu dla którego zostały nam udostępnione czyli udostępniane ich Kobietom (adresu, numeru telefonu, poczty elektronicznej, profilu Facebook i inne kontakty które Pan nam udostępnił (nie zgadza się Pan na udostępnienie któregoś z Pana kontaktów proszę nas o tym powiadomić przy rejestracji).</p>
@@ -792,16 +821,19 @@
   function showSuccess(pkg) {
     if (pkg === '49') {
       successBody.innerHTML =
-        '<p class="mb-4">Twoja oferta została dodana <strong>na zawsze</strong>. Będzie widoczna dla <strong>około 17 tysięcy kobiet</strong>. Potwierdzenie wysłaliśmy na Twój e-mail.</p>' +
-        '<div class="bg-beige-light rounded-xl p-4 text-sm text-charcoal/70">Jeśli któraś z Kobiet będzie Tobą zainteresowana — skontaktuje się z Tobą bezpośrednio.</div>';
+        '<div class="inline-flex items-center gap-2 bg-beige text-burgundy text-xs tracking-widest uppercase px-3 py-1 rounded-full mb-4">Pakiet podstawowy · 49 zł</div>' +
+        '<p class="mb-4">Twoja oferta matrymonialna została opublikowana <strong>na zawsze</strong> i będzie widoczna dla <strong>około 17 tysięcy Kobiet</strong> ze Wschodu Europy. Potwierdzenie wysłaliśmy na Twój e-mail.</p>' +
+        '<div class="bg-beige-light rounded-xl p-4 text-sm text-charcoal/70 mb-4">Jeśli któraś z Kobiet będzie Tobą zainteresowana — skontaktuje się z Tobą bezpośrednio.</div>' +
+        '<div class="rounded-xl border border-gold/40 bg-cream p-4 text-sm text-charcoal/70">💡 W pakiecie <strong>99 zł</strong> zostałbyś dodany na zawsze do <strong>6 grup na Facebooku</strong> i <strong>2 stron</strong>, gdzie sam możesz pisać do Kobiet jako pierwszy.</div>';
     } else {
       successBody.innerHTML =
-        '<p class="mb-4">Twoja oferta została dodana <strong>na zawsze</strong> do 6 grup na Facebooku oraz na dwie strony. Zostałeś również dodany do grup. Oto linki do grup:</p>' +
+        '<div class="inline-flex items-center gap-2 bg-burgundy text-cream text-xs tracking-widest uppercase px-3 py-1 rounded-full mb-4">★ Pakiet pełny · 99 zł</div>' +
+        '<p class="mb-4">Twoja oferta została opublikowana <strong>na zawsze</strong>, a Ty zostałeś dodany <strong>na zawsze do 6 grup na Facebooku</strong> oraz na <strong>2 strony internetowe</strong> (ponad 12 tysięcy Kobiet). Oto linki do Twoich grup:</p>' +
         '<div class="space-y-2 mb-4">' +
           linkRow('https://www.facebook.com/groups/kobiety.wschodu.milosc') +
           linkRow('https://www.facebook.com/groups/poznajmy.sie.wschod.europy') +
         '</div>' +
-        '<div class="bg-beige-light rounded-xl p-4 text-sm text-charcoal/70">Możesz już teraz pisać, poznawać się, umawiać i spotykać z Kobietami ze Wschodu Europy.</div>';
+        '<div class="bg-beige-light rounded-xl p-4 text-sm text-charcoal/70">Możesz już teraz <strong>pisać jako pierwszy</strong>, poznawać się, umawiać i spotykać z Kobietami ze Wschodu Europy. Potwierdzenie wysłaliśmy na Twój e-mail.</div>';
     }
     success.classList.remove('hidden');
     success.classList.add('flex');
